@@ -7,7 +7,7 @@ public class Room {
     private double price;
 
     // Constructor to initialize the room
-    public Room(int numberOfBeds. double price) {
+    public Room(int numberOfBeds. double price, boolean isOccupied, boolean isDirty) {
         this.isOccupied = false;
         this.isDirty = true; //Rooms start dirty by default and need to be cleaned
         this.numberOfBeds = numberOfBeds;
@@ -44,16 +44,21 @@ public class Room {
         return !isOccupied && !isDirty;
     }
 
-    // Getter for the number of beds
+    // Obtener numero de camas
 
     public int getNumberOfBeds() {
         return numberOfBeds;
     }
 
-    // getter for the price of the room
+    // Obtener Precio del Cuarto
 
     public double getPrice() {
         return price;
+    }
+
+    // Derived Getter - isAvailable(Room available if not Dirty or not occupied)
+    public boolean isAvailable() {
+        return !isOccupied && !isDirty;
     }
 }
 
